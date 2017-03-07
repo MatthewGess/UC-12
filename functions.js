@@ -76,12 +76,12 @@ function displayAreaCode(inputId, outputId) {
      var CoCode;
 
      try {
-         CoCode = between(phoneNum, "(", ")");
+         CoCode = between(phoneNum, ")", "-");
          CoCode = CoCode.trim();
          if (CoCode.length == 3 && Number(CoCode)) {
              return CoCode;
          } else {
-             throw new Error("Invalid area code: " + CoCode);
+             throw new Error("Invalid CoCode: " + CoCode);
          }
      } catch (error) {
          throw new Error("Invalid phone number: " + error.message);
