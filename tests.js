@@ -1,4 +1,5 @@
-QUnit.test( "A title for the test", function( assert ) {
+QUnit.test( "Test the getCoCode function", function( assert ) {
+
     assert.throws( function() {
-        yourFunction(badInput);
+        getGoCode();
     }, "Message identifying the test succeeded in catching the error." );
