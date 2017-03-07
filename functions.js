@@ -59,6 +59,42 @@ function getAreaCode(phoneNum) {
         throw new Error("Invalid phone number: " + error.message);
     }
 }
+function displayCoCode(inputId, outputId) {
+    var outputText = "";
+    var phoneNum = document.getElementById(inputId).value;
+    // Now try to get the code
+    try {
+        var areaCode = getCoCode(phoneNum);
+        outputText = "Your area code is " + CoCode;
+    }
+    catch (error) {
+        console.log(error.message);
+        outputText = error.message;
+    }
+    document.getElementById(outputId).innerHTML = outputText;
+}
+/**
+ * Returns an area code from a phone number: (###) ###-####
+ * @param   {string} phoneNum The phone number
+ * @returns {string} The area code
+ * @throws {Error} If the format is incorrect
+ */
+function getCoCode(phoneNum) {
+    var areaCode;
+    try {
+        CoCode = between(phoneNum, "(", ")");
+        CoCode = CoCode.trim();
+        if (CoCode.length == 3 && Number(CoCode)) {
+            return CoCode;
+        }
+        else {
+            throw new Error("Invalid area code: " + CoCode);
+        }
+    }
+    catch (error) {
+        throw new Error("Invalid phone number: " + error.message);
+    }
+}
 /**
  * Returns a line code from the current phone number : (###)### - ####
  * @param   {string} phoneNum which is the phone number
@@ -85,6 +121,7 @@ function getLineCode(phoneNum) {
 *@ param {string}inputId The element idfor the text box
 *@ param {string}outputId The element id of message div / function displayLineCode(inputId, outputId) {
 **/
+function displayLineCode(phoneNum) {
     var outputText = "";
     var phoneNum = document.getElementById(inputId).value;
     // Now try to get the code
@@ -97,4 +134,9 @@ function getLineCode(phoneNum) {
         outputText = error.message;
     }
     document.getElementById(outputId).innerHTML = outputText;
+}
+function displayAllCodes(InputId, OutputId) {
+    displayAreaCode(InputId, OutputId);
+    displayCoCode(InputId, OutputId);
+    displayLineCode(InputId, OutputId);
 }
