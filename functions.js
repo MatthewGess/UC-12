@@ -151,3 +151,9 @@ function displayLineCode(inputId, outputId) {
 
     document.getElementById(outputId).innerHTML = outputText;
 }
+
+function displayAllCodes(inputId, outputId) {
+    displayAreaCode(inputId, outputId);
+    //displayCoCode(inputId, outputId);
+    //displayLineCode(inputId, outputId);
+}
