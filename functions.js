@@ -22,6 +22,28 @@ function between(string, start, end) {
 
     return string.slice(startAt, endAt);
 }
+/**
+  * Returns an area code from a phone number: (###) ###-####
+  * @param   {string} phoneNum The phone number
+  * @returns {string} The area code
+  * @throws {Error} If the format is incorrect
+  */
+ function getAreaCode(phoneNum) {
+
+     var areaCode;
+
+     try {
+         areaCode = between(phoneNum, "(", ")");
+         areaCode = areaCode.trim();
+         if (areaCode.length == 3 && Number(areaCode)) {
+             return areaCode;
+         } else {
+             throw new Error("Invalid area code: " + areaCode);
+         }
+     } catch (error) {
+         throw new Error("Invalid phone number: " + error.message);
+     }
+ }
 
 /**
  * Displays the area code for an inputted phone number
