@@ -103,7 +103,11 @@ function getCoCode(phoneNum) {
     }
 }
 /**
+<<<<<<< HEAD
+  * Returns an area code from a phone number: (###) ###-####
+=======
   * Returns a line code from a phone number: (###) ###-####
+>>>>>>> orgin/master
   * @param   {string} phoneNum The phone number
   * @returns {string} The area code
   * @throws {Error} If the format is incorrect
