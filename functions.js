@@ -95,7 +95,7 @@ function getCoCode(phoneNum) {
             return CoCode;
         }
         else {
-            throw new Error("Invalid area code: " + CoCode);
+            throw new Error("Invalid Co code: " + CoCode);
         }
     }
     catch (error) {
@@ -103,7 +103,7 @@ function getCoCode(phoneNum) {
     }
 }
 /**
-  * Returns an area code from a phone number: (###) ###-####
+  * Returns a line code from a phone number: (###) ###-####
   * @param   {string} phoneNum The phone number
   * @returns {string} The area code
   * @throws {Error} If the format is incorrect
@@ -113,12 +113,12 @@ function getCoCode(phoneNum) {
      var LineCode;
 
      try {
-         LineCode = phoneNum.slice((phoneNum.length-4));
+         LineCode = phoneNum.slice(phoneNum.length - 4);
          LineCode = LineCode.trim();
          if (areaCode.length == 4 && Number(LineCode)) {
              return LineCode;
          } else {
-             throw new Error("Invalid area code: " + LineCode);
+             throw new Error("Invalid Line code: " + LineCode);
          }
      } catch (error) {
          throw new Error("Invalid phone number: " + error.message);
@@ -145,11 +145,4 @@ function displayLineCode(phoneNum) {
     }
 
     document.getElementById(outputId).innerHTML = outputText;
-}
-
-function displayAllCodes(InputId, OutputId) {
-    displayAreaCode(InputId, OutputId);
-    displayCoCode(InputId, OutputId);
-    displayLineCode(InputId, OutputId);
-
 }
