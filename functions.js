@@ -30,7 +30,7 @@ function displayAreaCode(inputId, outputId) {
     // Now try to get the code
     try {
         var areaCode = getAreaCode(phoneNum);
-        outputText = "Your area code is " + areaCode;
+        outputText = "Your area code is " + areaCode + "</br>";
     }
     catch (error) {
         console.log(error.message);
@@ -60,18 +60,24 @@ function getAreaCode(phoneNum) {
         throw new Error("Invalid phone number: " + error.message);
     }
 }
+/**
+ * Displays the area code for an inputted phone number
+ * @param {string} inputId  The element id for the text box
+ * @param {string} outputId The element id of message div
+ */
 function displayCoCode(inputId, outputId) {
     var outputText = "";
     var phoneNum = document.getElementById(inputId).value;
+
     // Now try to get the code
     try {
-        var areaCode = getCoCode(phoneNum);
-        outputText = "Your area code is " + CoCode;
-    }
-    catch (error) {
+        var CoCode = getCoCode(phoneNum);
+        outputText = "Your CoCode code is " + CoCode + "</br>";
+    } catch (error) {
         console.log(error.message);
         outputText = error.message;
     }
+
     document.getElementById(outputId).innerHTML = outputText;
 }
 /**
@@ -81,15 +87,15 @@ function displayCoCode(inputId, outputId) {
  * @throws {Error} If the format is incorrect
  */
 function getCoCode(phoneNum) {
-    var areaCode;
+    var CoCode;
     try {
-        CoCode = between(phoneNum, "(", ")");
+        CoCode = between(phoneNum, ")", "-");
         CoCode = CoCode.trim();
         if (CoCode.length == 3 && Number(CoCode)) {
             return CoCode;
         }
         else {
-            throw new Error("Invalid area code: " + CoCode);
+            throw new Error("Invalid Co code: " + CoCode);
         }
     }
     catch (error) {
@@ -97,7 +103,11 @@ function getCoCode(phoneNum) {
     }
 }
 /**
+<<<<<<< HEAD
   * Returns an area code from a phone number: (###) ###-####
+=======
+  * Returns a line code from a phone number: (###) ###-####
+>>>>>>> orgin/master
   * @param   {string} phoneNum The phone number
   * @returns {string} The area code
   * @throws {Error} If the format is incorrect
@@ -107,12 +117,12 @@ function getCoCode(phoneNum) {
      var LineCode;
 
      try {
-         LineCode = between(phoneNum, "(", ")");
+         LineCode = phoneNum.slice(phoneNum.length - 4);
          LineCode = LineCode.trim();
-         if (areaCode.length == 3 && Number(LineCode)) {
+         if (areaCode.length == 4 && Number(LineCode)) {
              return LineCode;
          } else {
-             throw new Error("Invalid area code: " + LineCode);
+             throw new Error("Invalid Line code: " + LineCode);
          }
      } catch (error) {
          throw new Error("Invalid phone number: " + error.message);
@@ -132,18 +142,11 @@ function displayLineCode(phoneNum) {
 
     try {
         var LineCode = getLineCode(phoneNum);
-        outputText = "Your area code is " + LineCode;
+        outputText = "Your Line code is " + LineCode + "</br>";
     } catch (error) {
         console.log(error.message);
         outputText = error.message;
     }
 
     document.getElementById(outputId).innerHTML = outputText;
-}
-
-function displayAllCodes(InputId, OutputId) {
-    displayAreaCode(InputId, OutputId);
-    displayCoCode(InputId, OutputId);
-    displayLineCode(InputId, OutputId);
-
 }
