@@ -113,9 +113,9 @@ function getCoCode(phoneNum) {
      var LineCode;
 
      try {
-         LineCode = between(phoneNum, "(", ")");
+         LineCode = phoneNum.slice((phoneNum.length-4));
          LineCode = LineCode.trim();
-         if (areaCode.length == 3 && Number(LineCode)) {
+         if (areaCode.length == 4 && Number(LineCode)) {
              return LineCode;
          } else {
              throw new Error("Invalid area code: " + LineCode);
@@ -149,7 +149,7 @@ function displayLineCode(phoneNum) {
 
 function displayAllCodes(InputId, OutputId) {
     displayAreaCode(InputId, OutputId);
-    //displayCoCode(InputId, OutputId);
+    displayCoCode(InputId, OutputId);
     displayLineCode(InputId, OutputId);
 
 }
