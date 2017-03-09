@@ -72,7 +72,7 @@ function displayCoCode(inputId, outputId) {
     // Now try to get the code
     try {
         var CoCode = getCoCode(phoneNum);
-        outputText = "Your area code is " + CoCode + "</br>";
+        outputText = "Your CoCode code is " + CoCode + "</br>";
     } catch (error) {
         console.log(error.message);
         outputText = error.message;
@@ -138,7 +138,7 @@ function displayLineCode(phoneNum) {
 
     try {
         var LineCode = getLineCode(phoneNum);
-        outputText = "Your area code is " + LineCode + "</br>";
+        outputText = "Your Line code is " + LineCode + "</br>";
     } catch (error) {
         console.log(error.message);
         outputText = error.message;
