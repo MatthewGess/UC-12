@@ -96,27 +96,6 @@ function getCoCode(phoneNum) {
         throw new Error("Invalid phone number: " + error.message);
     }
 }
-
-/**
- * Displays the area code for an inputted phone number
- * @param {string} inputId  The element id for the text box
- * @param {string} outputId The element id of message div
- */
-function displayCoCode(inputId, outputId) {
-    var outputText = "";
-    var phoneNum = document.getElementById(inputId).value;
-
-    // Now try to get the code
-    try {
-        var CoCode = getCoCode(phoneNum);
-        outputText = "Your area code is " + CoCode;
-    } catch (error) {
-        console.log(error.message);
-        outputText = error.message;
-    }
-
-    document.getElementById(outputId).innerHTML = outputText;
-}
 /**
   * Returns an area code from a phone number: (###) ###-####
   * @param   {string} phoneNum The phone number
