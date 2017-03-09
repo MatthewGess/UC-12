@@ -115,7 +115,7 @@ function getCoCode(phoneNum) {
      try {
          LineCode = phoneNum.slice(phoneNum.length - 4);
          LineCode = LineCode.trim();
-         if (areaCode.length == 4 && Number(LineCode)) {
+         if (LineCode.length == 4 && Number(LineCode)) {
              return LineCode;
          } else {
              throw new Error("Invalid Line code: " + LineCode);
@@ -131,7 +131,7 @@ function getCoCode(phoneNum) {
 *@ param {string}inputId The element idfor the text box
 *@ param {string}outputId The element id of message div / function displayLineCode(inputId, outputId) {
 **/
-function displayLineCode(phoneNum) {
+function displayLineCode(inputId, outputId) {
     var outputText = "";
     var phoneNum = document.getElementById(inputId).value;
 
