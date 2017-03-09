@@ -87,7 +87,7 @@ function displayCoCode(inputId, outputId) {
  * @throws {Error} If the format is incorrect
  */
 function getCoCode(phoneNum) {
-    var areaCode;
+    var CoCode;
     try {
         CoCode = between(phoneNum, ")", "-");
         CoCode = CoCode.trim();
